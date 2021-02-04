@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Demo</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font: 15px/1.3 'Open Sans', sans-serif;
+        color: #5e5b64;
+        text-align: center;
+    }
+
+    a,
+    a:visited {
+        outline: none;
+        color: #389dc1;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    section,
+    footer,
+    header,
+    aside,
+    nav {
+        display: block;
+    }
+
+    /*-------------------------
+		菜鸟
+	--------------------------*/
+
+    nav {
+        display: inline-block;
+        margin: 60px auto 45px;
+        background-color: #5597b4;
+        box-shadow: 0 1px 1px #ccc;
+        border-radius: 2px;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 18px 30px;
+        color: #fff !important;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none !important;
+        line-height: 1;
+        text-transform: uppercase;
+        background-color: transparent;
+
+        -webkit-transition: background-color 0.25s;
+        -moz-transition: background-color 0.25s;
+        transition: background-color 0.25s;
+    }
+
+    nav a:first-child {
+        border-radius: 2px 0 0 2px;
+    }
+
+    nav a:last-child {
+        border-radius: 0 2px 2px 0;
+    }
+
+    nav.home .home,
+    nav.projects .projects,
+    nav.services .services,
+    nav.contact .contact {
+        background-color: #e35885;
+    }
+
+    p {
+        font-size: 22px;
+        font-weight: bold;
+        color: #7d9098;
+    }
+
+    p b {
+        color: #ffffff;
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #c4d7e0;
+        border-radius: 2px;
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <div id="app">
+
+        <!-- 激活的菜单样式为  active 类 -->
+        <!-- 为了阻止链接在点击时跳转，我们使用了 "prevent" 修饰符 (preventDefault 的简称)。 -->
+
+        <nav v-bind:class="active" v-on:click.prevent>
+
+            <!-- 当菜单上的链接被点击时，我们调用了 makeActive 方法, 该方法在 Vue 实例中创建。 -->
+
+            <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+            <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
+            <a href="#" class="services" v-on:click="makeActive('services')">Services</a>
+            <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
+        </nav>
+
+        <!-- 以下 "active" 变量会根据当前选中的值来自动变换 -->
+
+        <p>您选择了 <b>{{active}} 菜单</b></p>
+        <br>
+        <p v-model="message">{{message}}</p>
+        <p v-text="message"></p>
+        <p v-once>{{message}}</p> <!-- 只加载一次 -->
+        <p v-html="htmlUrl"></p>
+        <a v-bind:href="url">百度一下1</a>
+        <a :href="url">百度一下2</a>
+        <p :style="getStyles()">呵呵哒</p>
+        <p>{{fullName}}</p>
+        <br>
+        <ul>
+            <li v-for="movie in movies">{{movie}}</li>
+
+            <li v-for="(movie,index) in movies">{{movie}} ----- {{index}}</li>
+        </ul>
+        <br>
+        <h2>
+            当前计数：{{counter}}
+        </h2>
+        <button v-on:click="add">+</button>
+        <button v-on:click="sub">-</button>
+
+        <div @click="divClick">
+            aaaaa
+            <!-- stop修饰符 阻止事件冒泡 -->
+            <button @click.stop="btnClick">btn</button>
+        </div>
+
+        <div>
+            <form action="baidu">
+                <!-- prevent修饰符 -->
+                <input type="submit" value="提交" @click.prevent="submitClick">
+            </form>
+        </div>
+
+        <div>
+            <p v-for="item in list">
+                {{item}}
+            </p>
+        </div>
+        <childCompent></childCompent>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h2>我是标题</h2>
+            <p>我是内容哈哈哈哈</p>
+        </div>
+    </template>
+
+    <script>
+        // 创建一个新的 Vue 实例
+        const app = new Vue({
+            // DOM 元素，挂载视图模型
+            el: '#app',
+
+            // 定义属性，并设置初始值
+            data: {
+                active: 'home',
+                message: '会显示吗',
+                movies: ['娃哈哈', '神经刀', '魔兽'],
+                counter: 0,
+                htmlUrl: '<a href="https://www.baidu.com">百度一下</a>',
+                url: 'https://www.baidu.com',
+                finalSize: 100,
+                finalColor: 'red',
+                fisrtName: 'Lebron',
+                lastName: 'John',
+                list: [
+                    { a: 1 },
+                    { b: 2 }
+                ]
+            },
+            components: {
+                'childCompent': {
+                    template: '#cpn'
+                }
+            },
+            // 点击菜单使用的函数
+            methods: {
+                makeActive: function (item) {
+                    // 模型改变，视图会自动更新
+                    this.active = item;
+                },
+                add: function () {
+                    console.log('这里是加法');
+                    this.counter++;
+                },
+                sub: function () {
+                    console.log('这里是减法');
+                    this.counter--;
+                },
+                getStyles: function () {
+                    return { fontSize: this.finalSize + 'px', backgroundColor: this.finalColor };
+                },
+                divClick() {
+                    console.log("点击div");
+                },
+                btnClick() {
+                    console.log("点击btn");
+                },
+                submitClick() {
+                    console.log("点击submitClick");
+                }
+            },
+            //生命周期
+            beforeCreate() {
+
+            },
+            created() {
+
+            },
+            mounted() {
+
+            },
+            // 计算属性 只会调用一次 有助于优化性能
+            computed: {
+                fullName: {
+                    get: function () {
+                        return this.fisrtName + ' ' + this.lastName
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+body {
+    background-color: #d2b48c;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px dotted black;
+    padding: 10px 10px 10px 10px;
+    font-family: sans-serif;
+    line-height: 1.6em;
+}
+
+p {
+    /* background-color: red; */
+    /* border: 1px solid gray; */
+    color: maroon;
+}
+
+h1,h2 {
+    font-family: sans-serif;
+    color: gray;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 130%;
+}
+
+p.greentea {
+    color: green;
+}
+
+em {
+    font-style: italic;
+}
+
+.guarantee {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #a7cece;
+    padding: 25px; /*内边距*/
+    padding-left: 80px;
+    margin: 30px; /*外边距*/
+    margin-right: 250px;
+    background-image: url("images/WX20201022-101002.png");
+    background-repeat: no-repeat; /*背景图不重复*/
+    background-position: top left;
+    border-style: dashed;
+    border-color: white;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+
+#elixirs {
+    border-width: thin;
+    border-style: solid;
+    border-color: #007e7e;
+    width: 200px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-left: 20px;
+    text-align: center;
+    /* background-image: url("images/WX20201022-101002.png"); */
+    /* background-repeat: repeat-x; */
+}
+
+.cd {
+    font-style: italic;
+}
+
+.artist {
+    font-weight: bold;
+}
+
+a:link {
+    color: green;
+}
+
+a:hover {
+    color: yellow;
+}
+
+#sidebar {
+    background: #efe5d0;
+    font-size: 105%;
+    padding: 15px;
+    margin: 0px 10px 10px 10px;
+    width: 280px;
+    float: right;
+}
+
+#main {
+    background: #efe5d0;
+    font-size: 105%;
+    padding: 15px;
+    margin: 0px 330px 10px 10px;
+}
+
+#footer {
+    background-color: #675c47;
+    color: #efe5d0;
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+    font-size: 90%;
+    clear: right;
+}

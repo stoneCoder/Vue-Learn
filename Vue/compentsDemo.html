@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <cpn :cmessage="message"></cpn>
+        <br>
+        <btn-component @item-click="btnComponentClick"></btn-component>
+        <!--驼峰需要用-间隔-->
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h2>我是父组件传递给子组件的数据{{cmessage}}</h2>
+            <h2>当前计数：{{counter}}</h2>
+            <button @click="increment">+</button>
+            <button @click="decrement">-</button>
+        </div>
+    </template>
+
+    <template id="buttonComponent">
+        <div>
+            <button v-for="item in categories" @click="btnClick(item)">
+                {{item.name}}
+            </button>
+        </div>
+    </template>
+
+    <script>
+        const cpn = {
+            template: "#cpn",
+            props: {
+                cmessage: {
+                    // required:true, //必传项
+                    type: String,
+                    default: ''
+                }
+            },
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increment() {
+                    this.counter++;
+                },
+                decrement() {
+                    this.counter--;
+                }
+            },
+        }
+
+        const btnComponent = {
+            template: "#buttonComponent",
+            data() {
+                return {
+                    categories: [
+                        { id: 'aaa', name: '热门土建' },
+                        { id: 'bbb', name: '手机数码' },
+                    ]
+                }
+            },
+            methods: {
+                btnClick(item) {
+                    this.$emit('item-click',item);//向父组件传递事件
+                }
+            },
+        }
+
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "2aaaa1"
+            },
+            components: {
+                cpn,
+                btnComponent
+            },
+            methods: {
+                btnComponentClick(item) {
+                    console.log(item);
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>
