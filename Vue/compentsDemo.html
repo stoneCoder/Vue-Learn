@@ -5,15 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
 
     <div id="app">
-        <cpn :cmessage="message"></cpn>
+        <cpn :cmessage="message" ref="aaa"></cpn>
         <br>
         <btn-component @item-click="btnComponentClick"></btn-component>
+        <br>
+        <btn-component @item-click="btnComponentClick">
+            <div>
+                <br>
+                <h2>我代替了插槽的位置</h2>
+            </div>
+        </btn-component>
+        <btn-component @item-click="btnComponentClick">
+            <div slot="bottom">
+                <h2>我代替了具名插槽的位置</h2>
+            </div>
+        </btn-component>
+
+        <btn-component @item-click="btnComponentClick">
+            <template slot-scope="slot">
+                <!-- slot.data 获取子组件的数据 -->
+                <br>
+                <span v-for="item in slot.abc">
+                    {{item}}
+                </span>
+            </template>
+        </btn-component>
         <!--驼峰需要用-间隔-->
     </div>
 
@@ -31,6 +53,13 @@
             <button v-for="item in categories" @click="btnClick(item)">
                 {{item.name}}
             </button>
+            <slot :abc="pLanguages">
+                <br>
+                <h2>我是插槽的默认值</h2>
+            </slot> <!-- 插槽位置 可任意添加组件-->
+            <slot name="bottom">
+
+            </slot> <!-- 我是具名插槽-->
         </div>
     </template>
 
@@ -51,6 +80,8 @@
             },
             methods: {
                 increment() {
+                    console.log(this.$parent);//获取父组件
+                    console.log(this.$root);//获取根组件
                     this.counter++;
                 },
                 decrement() {
@@ -66,12 +97,16 @@
                     categories: [
                         { id: 'aaa', name: '热门土建' },
                         { id: 'bbb', name: '手机数码' },
+                    ],
+                    pLanguages:[
+                        '呵呵哒',
+                        '什么鬼'
                     ]
                 }
             },
             methods: {
                 btnClick(item) {
-                    this.$emit('item-click',item);//向父组件传递事件
+                    this.$emit('item-click', item);//向父组件传递事件
                 }
             },
         }
@@ -87,7 +122,8 @@
             },
             methods: {
                 btnComponentClick(item) {
-                    console.log(item);
+                    console.log(this.$children);//获取所有子组件
+                    console.log(this.$refs.aaa.cmessage);//给子组件定义别名获取子组件
                 }
             },
         })
