@@ -4,51 +4,245 @@
 <head>
     <meta charset="utf-8">
     <title>Head First Lounge</title>
+    <style>
+        .top {
+            width: 100%;
+            height: 194px;
+            background-color: red;
+        }
+
+        .center {
+            width: 100%;
+            background-color: white;
+            margin-top: -10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            overflow: hidden;
+        }
+
+        .travel {
+            margin: 20px 10px 0 10px;
+            margin-top: 20px;
+            height: 262px;
+        }
+
+        .travel .left {
+            width: 150px;
+            height: 100%;
+            background-color: hotpink;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            float: left;
+        }
+
+        .travel .right {
+            float: left;
+            margin-left: 10px;
+            width: 195px;
+            height: 100%;
+        }
+
+        .hotel {
+            width: 100%;
+            height: 129px;
+            background-color: tan;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .train {
+            width: 100%;
+            height: 124px;
+            margin-top: 10px;
+            background-color: skyblue;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .shop {
+            margin: 20px 10px 0 10px;
+            height: 145px;
+        }
+
+        .jd {
+            float: left;
+            height: 100%;
+            width: 175px;
+            background-color: red;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .sn {
+            margin-left: 5px;
+            float: left;
+            height: 100%;
+            width: 175px;
+            background-color: green;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .bottom {
+            margin: 20px 10px 0 10px;
+            height: 99px;
+        }
+
+        .bottom a {
+            background-color: #e9ecf1;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .bottomTop {
+            height: 54px;
+        }
+
+        .bottomTop a {
+            line-height: 54px;
+        }
+
+        .bottomTop a:hover {
+            color: black;
+        }
+
+        .bottom .jd {
+            border-bottom-left-radius: 0px;
+        }
+
+        .bottom .sn {
+            border-bottom-right-radius: 0px;
+        }
+
+        .bottomBottom {
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        .bottomBottom a {
+            float: left;
+            height: 100%;
+            width: 113px;
+            line-height: 40px;
+            margin-right: 5px;
+        }
+
+        .bottomBottom a:hover {
+            color: black;
+        }
+
+        .box1 {
+            width: 0;
+            height: 0;
+            border-top: 10px solid pink;
+            border-right: 10px solid red;
+            border-bottom: 10px solid blue;
+            border-left: 10px solid green;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top: 10px solid pink;
+        }
+
+        .box3 {
+            width: 300px;
+            height: 70px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .box3 .pic {
+            width: 120px;
+            height: 60px;
+            background-color: red;
+            float: left;
+        }
+
+        .box3 .pic img {
+            width: 100%;
+        }
+    </style>
 </head>
 <link type="text/css" rel="stylesheet" href="lounge.css">
 
 <body>
-    <h1>Welcome to the Head First Lounge</h1>
-    <h2>House Blend, $1.49</h2>
-    <p class="greentea">
-        Join us any evening for
-        <a href="javascript:void()">elixirs</a>
-        这是一个真实的页面<a href="https://www.baidu.com" title="这是百度">网站</a>
-    </p>
-    <em>这是一个强调文本</em>
-    <p>我是一个不关心顺序列表</p>
-    <ul>
-        <li>cell phone</li>
-        <li>iPod</li>
-        <li>digital camera</li>
-        <li>and a protein bar</li>
-    </ul>
-    <p>我是一个有序列表</p>
-    <ol>
-        <li>Square One
-        <li>What If?
-        <li>White Shadows
-        <li>Fix You
-    </ol>
-    <p class="guarantee">
-        的控件爱是副科级撒谎咖啡机哈卡数据返回安会计师法哈框架是否很快就暗示法奥斯卡接发哈框架是否很快就的说法傲世狂妃几哈框架是否哈咖啡店
-        深坑就的划分科技是电话客服激活啥的傲世狂妃几哈可使肌肤哈克数据返回阿克苏解放后卡数据恢复
-        阿双方均看哈可使肌肤的哈迪斯废弃物一欢瑞世纪风很大框架是否还是看缉毒风暴四大皆空
-    </p>
+    <!-- 第一周作业 -->
+    <strong>鸟对垂杨似有情，</strong><br> <!-- 加粗 -->
+    <em>垂杨亦爱鸟轻盈，</em><br> <!-- 斜体 -->
+    <ins>若叫树鸟长如此，</ins><br> <!-- 下划线 -->
+    <del>伺隙苍鹰哪得撄？</del><br> <!-- 删除线 -->
 
-    <div id="elixirs">
-        <h2>Weekly Elixir Specials</h2>
-        <p>
-            <img src="images/aaa"/>
-        </p>
-        <h3>Lemon Breeze</h3>
-        <p>
-            的控件爱是副科级撒谎咖啡机哈卡数据返回安会计师法哈框架是否很快就暗示法奥斯卡接发哈框架是否很快就的说法傲世狂妃几哈框架是否哈咖啡店
-            深坑就的划分科技是电话客服<span class="cd">激活啥的傲世狂妃</span>
-        </p>
-        <p>
-            <img src="images/bbb"/>
-        </p>
+    <!-- 无序列表 -->
+    <ul>
+        <li>水果
+            <ul>
+                <li>榴莲</li>
+                <li>荔枝</li>
+            </ul>
+        </li>
+        <li>蔬菜
+            <ul>
+                <li>菠菜</li>
+                <li>黄瓜</li>
+            </ul>
+        </li>
+        <li>咖啡</li>
+        <li>奶酪</li>
+        <li>红酒</li>
+    </ul>
+
+    <a href="#" style="text-decoration: none;">呵呵哒</a>
+
+    <div style="width: 375px;background-color: white;">
+        <div class="top"></div>
+        <div class="center">
+            <div class="travel">
+                <div class="left"></div>
+                <div class="right">
+                    <div class="hotel"></div>
+                    <div class="train"></div>
+                </div>
+            </div>
+            <div class="shop">
+                <div class="jd"></div>
+                <div class="sn"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottomTop">
+                <a class="jd" href="#">行程助手</a>
+                <a class="sn" href="#">商旅订单</a>
+            </div>
+            <div class="bottomBottom">
+                <a href="#">发票助手</a>
+                <a href="#">配送地址</a>
+                <a href="#">常用乘客</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- CSS三角制作 -->
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <br>
+
+    <div>
+        <img style="background-color: red; width: 200px;height: 200px;vertical-align: middle;" />
+        呵呵哒
+    </div>
+
+    <br>
+
+    <div class="box3">
+        <div class="pic">
+            <img src="" alt="" style="">
+        </div>
+        <p>回武汉棋魂入口即化司法局设计费</p>
     </div>
 </body>
 

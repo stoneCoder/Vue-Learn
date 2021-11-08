@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style scoped>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .bg {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            /* border: 1px solid transparent; */
+        }
+
+        .bgImg {
+            width: 100%;
+            height: 50%;
+            background-color: #4b8deb;
+        }
+
+        .loginBox {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -162px;
+            margin-top: -219px;
+            background-color: white;
+            width: 324px;
+            height: 438px;
+            box-shadow: 0 15px 5px #c3d5ee;
+        }
+
+        .loginTip {
+            position: relative;
+            margin-top: 96px;
+            height: 30px;
+        }
+
+        .loginTip .welcome {
+            font-style: italic;
+            margin-left: 15px;
+            font-size: 25px;
+            color: #f6a345;
+        }
+
+        .loginTip .title {
+            color: #4c8eeb;
+            position: absolute;
+            left: 130px;
+            bottom: -3px;
+        }
+
+        .loginEdit {
+            background-color: white;
+            margin-top: 46px;
+        }
+
+        .loginEdit .username {
+            margin-left: 15px;
+            margin-right: 15px;
+            height: 35px;
+
+        }
+
+        .loginEdit .password {
+            margin: 20px 15px 0 15px;
+            height: 35px;
+        }
+
+        .username_icon,
+        .pwd_icon {
+            width: 30px;
+            height: 35px;
+            background-color: red;
+            vertical-align: middle;
+        }
+
+        .username_input,
+        .pwd_input {
+            height: 35px;
+            width: 263px;
+            margin-left: -5px;
+            background-color: #f7f7f7;
+            font-size: 13px;
+        }
+
+        input {
+            border: 0;
+            outline: none;
+        }
+
+        .forgetPwd {
+            float: right;
+            margin-top: 25px;
+            margin-right: 15px;
+            font-size: 12px;
+            color: #999999;
+        }
+
+        .loginBtn {
+            position: absolute;
+            left: 50%;
+            bottom: 96px;
+            margin-left: -60px;
+            border-radius: 3px;
+            width: 120px;
+            height: 30px;
+            background-color: #4b8deb;
+            text-align: center;
+            font-size: 14px;
+            line-height: 30px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <img class="bgImg" />
+        <div class="loginBox">
+            <div class="loginTip">
+                <h1 class="welcome">欢迎使用</h1>
+                <h3 class="title">运营管理系统</h3>
+            </div>
+            <div class="loginEdit">
+                <div class="username">
+                    <img class="username_icon" />
+                    <input class="username_input" type="text" placeholder="请输入用户名" />
+                </div>
+                <div class="password">
+                    <img class="pwd_icon" />
+                    <input class="pwd_input" type="password" placeholder="请输入密码" />
+                </div>
+            </div>
+            <div class="forgetPwd">
+                忘记密码
+            </div>
+            <div class="loginBtn">
+                登陆
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
